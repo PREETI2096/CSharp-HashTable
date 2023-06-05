@@ -33,5 +33,20 @@ namespace Hashtable
             int arrayIndex = Math.Abs(data.GetHashCode()) % Names.Length;
             Names[arrayIndex] = newNode;
         }
+        public void Display()
+        {
+            for (int index = 0; index < Names.Length; index++)
+            {
+                Node tempNode = Names[index];
+
+                Console.Write($"Index {index} : ");
+                while (tempNode != null)
+                {
+                    Console.Write(tempNode.Data + " -> ");
+                    tempNode = tempNode.Next;
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }
