@@ -48,5 +48,27 @@ namespace Hashtable
                 Console.WriteLine();
             }
         }
+        public void Search(T data)
+        {
+            int arrayIndex = Math.Abs(data.GetHashCode()) % Names.Length;
+            Node tempNode = Names[arrayIndex];
+            if (tempNode == null)
+            {
+                Console.WriteLine($"{data} not found");
+                return;
+            }
+
+            while (!tempNode.Data.Equals(data))
+            {
+                if (tempNode.Next == null)
+                {
+                    Console.WriteLine($"{data} not found");
+                    return;
+                }
+                tempNode = tempNode.Next;
+            }
+
+            Console.WriteLine($"{data} is present at {arrayIndex} index in the ");
+        }
     }
 }

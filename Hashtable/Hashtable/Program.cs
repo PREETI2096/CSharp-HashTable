@@ -9,6 +9,7 @@
             hashtable.Add("Preeti");
             hashtable.Add("isha");
             hashtable.Display();
+            hashtable.Search("priya");
         }
     }
 }
