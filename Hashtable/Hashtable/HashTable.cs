@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Hashtable
 {
@@ -24,6 +25,13 @@ namespace Hashtable
         public HashTable(int size)
         {
             Names = new Node[size];
+        }
+
+        public void Add(T data)
+        {
+            Node newNode = new Node(data);
+            int arrayIndex = Math.Abs(data.GetHashCode()) % Names.Length;
+            Names[arrayIndex] = newNode;
         }
     }
 }
